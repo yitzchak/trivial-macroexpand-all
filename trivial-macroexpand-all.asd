@@ -4,8 +4,8 @@
   :description "Call each implementation's macroexpand-all equivalent"
   :author "Chris Bagley <chris.bagley@gmail.com>"
   :license "Unlicense"
-  :serial t
-  #+sbcl :depends-on
-  #+sbcl (:sb-cltl2)
-  :components ((:file "package")
-               (:file "trivial-macroexpand-all")))
+  :depends-on ((:feature :sbcl (:require "sb-cltl2")))
+  :components ((:module "code"
+                :serial t
+                :components ((:file "packages")
+                             (:file "implementation")))))
