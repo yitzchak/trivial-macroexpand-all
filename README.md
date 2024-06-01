@@ -1,18 +1,22 @@
 # trivial-macroexpand-all
 
-Provides a macroexpand-all function that calls the implementation specific equivalent.
+Provides a macroexpand-all function that calls the implementation
+specific equivalent.
 
-Supports: `abcl`, `allegro`, `ccl`, `clisp`, `cmucl`, `corman`, `lispworks`, `mkcl`, `sbcl`, `ecl` & `scl`
+Supports: [ABCL][], [Allegro][], [CCL][], [Clasp][], [CLISP][],
+[CMUCL][], [Corman Lisp][], [ECL][], [Lispworks][], [MKCL][], [SBCL][]
+and SCL.
 
-If you use the function from a supported implementation then the three return values are:
-- the expanded form
-- t
-- t, if the implementation specific equivalent accepts an environment
+The first argument to MACROEXPAND-ALL should be the form to be
+expanded. The second argument is an optional environment that may not
+be respected by the implementation. The returned form will either be
+an expanded form or the original form if the implementation does not
+support MACROEXPAND-ALL.
 
-If you use the function from an unsupported implementation then the three return values are:
-- the original form
-- nil
-- nil
+If the implementation supports MACROEXPAND-ALL then the keyword
+`:trivial-macroexpand-all` will be present in `*features*`. If the
+implementation respects the environment argument then
+`:trivial-macroexpand-all/env` will be present in `*features*`.
 
 ## Example
 
@@ -31,6 +35,15 @@ CL-USER> (trivial-macroexpand-all:macroexpand-all '(or 1 2 3 4))
                   4)))))
 ```                  
 
-## Trivial..again?
-
-Yup another library using the `trivial-*` naming convention`, `but look at the source.. it's pretty damn trivial
+[ABCL]: https://armedbear.common-lisp.dev/
+[Allegro]: https://franz.com/products/allegro-common-lisp/
+[CCL]: https://github.com/Clozure/ccl
+[CLISP]: https://gitlab.com/gnu-clisp/clisp
+[CMUCL]: https://gitlab.common-lisp.net/cmucl/cmucl
+[Clasp]: https://clasp-developers.github.io/
+[Corman Lisp]: https://github.com/sharplispers/cormanlisp
+[ECL]: https://ecl.common-lisp.dev/
+[LispWorks]: https://www.lispworks.com/products/lispworks.html
+[MKCL]: https://mkcl.common-lisp.dev/
+[Mezzano]: https://github.com/froggey/Mezzano
+[SBCL]: http://sbcl.org/
