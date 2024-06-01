@@ -14,9 +14,9 @@ an expanded form or the original form if the implementation does not
 support MACROEXPAND-ALL.
 
 If the implementation supports MACROEXPAND-ALL then the keyword
-`:trivial-macroexpand-all` will be present in `*features*`. If the
+`:macroexpand-all` will be present in `*features*`. If the
 implementation respects the environment argument then
-`:trivial-macroexpand-all/env` will be present in `*features*`.
+`:macroexpand-all/env` will be present in `*features*`.
 
 ## Example
 
@@ -33,7 +33,7 @@ CL-USER> (trivial-macroexpand-all:macroexpand-all '(or 1 2 3 4))
               (IF #:G624
                   #:G624
                   4)))))
-```                  
+```
 
 [ABCL]: https://armedbear.common-lisp.dev/
 [Allegro]: https://franz.com/products/allegro-common-lisp/
@@ -45,5 +45,4 @@ CL-USER> (trivial-macroexpand-all:macroexpand-all '(or 1 2 3 4))
 [ECL]: https://ecl.common-lisp.dev/
 [LispWorks]: https://www.lispworks.com/products/lispworks.html
 [MKCL]: https://mkcl.common-lisp.dev/
-[Mezzano]: https://github.com/froggey/Mezzano
 [SBCL]: http://sbcl.org/
